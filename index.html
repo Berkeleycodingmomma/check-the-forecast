@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check The Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="temp">
+        </h1>
+        <p id="desc"></p>
+
+        <form id="form">
+            <input id="state" type="leters" placeholder="state" title="Please Enter a valid State"
+                pattern="(/^[A-Za-z]+$/)">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!--get Element refrences -->
+    <script>
+        const tempEL = document.getElementById("temp")
+        const descEl = document.getElementById("desc")
+        const formEl = document.getElementById("form")
+        const stateInput = document.getElementById("state")
+
+        // definded the event listners
+        formEl.addEventListener("submit", (e) => {
+            e.preventDefault()
+                const state = stateInput.value
+                getWeather(state)
+        })
+
+function getWeather(state) {
+
+
+}
+    </script>
+
+
+
+
+
+
+
+
+
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
