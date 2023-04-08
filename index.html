@@ -18,7 +18,7 @@
         <p id="desc"></p>
 
         <form id="form">
-            <input id="state" type="leters" placeholder="state" title="Please Enter a valid State"
+            <input id="city" type="leters" placeholder="Enter city here" title="Please Enter a valid City"
                 pattern="(/^[A-Za-z]+$/)">
             <button type="submit">Search</button>
         </form>
@@ -29,35 +29,38 @@
         const tempEL = document.getElementById("temp")
         const descEl = document.getElementById("desc")
         const formEl = document.getElementById("form")
-        const stateInput = document.getElementById("state")
+        const cityInput = document.getElementById("city")
 
         // definded the event listners
         formEl.addEventListener("submit", (e) => {
             e.preventDefault()
-                const state = stateInput.value
-                getWeather(state)
+            const city = cityInput.value
+            getWeather(city)
         })
 
-function getWeather(state) {
+        function getWeather(city) {
+            const apiKey = ""
+            const units = ""
+            const path = ""
+            fetch(path)
+                .then(res => res..json())
+                .then(json => {
+                    tempEL.innerHTML = json.main.temp
+                    descEl.innerHTML = json.weather[0].description
 
+                })
 
-}
-    </script>
+                .catch(err => console.log(err.message))
+        }
+</script>
 
-
-
-
-
-
-
-
-
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+        
+       <script src = " https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-
-
     <script src="./assets/js/script.js"></script>
+    </script>
 </body>
 
 </html>
