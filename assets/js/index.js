@@ -19,3 +19,5 @@ function allLetter(inputtxt)
       return false;
       }
       }
+
+     // 89c4250809c202e3e1990eca9d40606  (my api key)
