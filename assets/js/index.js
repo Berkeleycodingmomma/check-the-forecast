@@ -1,23 +1,34 @@
-// #string-lib 
+ // My API key 89c4250809c202e3e1990eca9d40606 
 
-// JS library for Strings  
+ var key = "89c4250809c202e3e1990eca9d40606"
+ Var city = "Heber"
 
-console.log("hello world")
+ var date = moment().format("dddd, mmmm, Do, YYYY");
+ var dateTime = moment().format("YYYY-MMMM-DD HH:MM:SS")
+
+ // bellow is going to save the search history
+ var cityHist = [];
+ $('.searc').on("click", function (event) {
+             event.preventDefault();
+             city = $(this).parent(".btnPar").siblings(".textVal").val().trim();
+                 if (city === "") {
+                     return;
+                 }; cityHist.push(city);
+
+                 localStorage.setItem('citu', JSON.stringify(cityHist));
+                 fiveForecastEl.empy(); getHistory(); getWeatherToday();
+
+             });
 
 
-function allLetter(inputtxt)
-      { 
-      var letters = /^[A-Za-z]+$/;
-      if(inputtxt.value.match(letters))
-      {
-      alert('Your name have accepted : you can try another');
-      return true;
-      }
-      else
-      {
-      alert('Please input alphabet characters only');
-      return false;
-      }
-      }
 
-     // 89c4250809c202e3e1990eca9d40606  (my api key)
+
+
+
+
+
+
+
+
+
+         // 89c4250809c202e3e1990eca9d40606  (my api key)
