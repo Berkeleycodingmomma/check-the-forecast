@@ -1,6 +1,69 @@
 
-/* starting the styling */
+body {
+  background-image: url(../css/images/weather\ pic.jpeg);
+  background-size: cover;
+  align-content: center;
+}
+
 h1 {
+	background-color: hsl(20deg 92.98% 33.53%);
+	text-align: center;
+}
+label {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+.card {
+	margin: 10px;
+  align-content: center;
+ 
+}
+.colOne {
+	background-color: white;
+  align-content: center;
+}
+.colTwo {
+	background-color: rgb(255, 255, 255);
+  align-content: center;
+}
+.histBtnRow {
+	margin-top: 5px;
+	margin-bottom: 5px;
+  align-content: center;
+}
+.green{
+  background-color: lightgreen;
+}
+.yellow{
+  background-color: yellow;
+}
+.orange{
+  background-color: orange;
+}
+.red{
+  background-color: red;
+}
+.purple{
+  background-color: purple;
+}
+.icons {
+	height: 70px;
+	width: 70px;
+  align-content: center;
+}
+.cardTodayDate {
+	font-size: 20px;
+  align-content: center;
+}
+
+
+
+
+
+
+/* starting the styling */
+/* h1 {
     background-color: darkgrey;
     text-align: center;
 }
@@ -50,4 +113,4 @@ background-color: purple;
 
 .cardTodayDate{
     font-size: 20px;
-}
+} */
