@@ -168,13 +168,15 @@
          }
      });
  };
+// example data to load for Heber 
 
+function initLoad() {
+    var cityHistStore = JSON.parse(localStorage.getItem('city'));
+    if (cityHistStore !== null) {
+        cityHist = cityHistStore
+    }
+    getHistory();
+    getWeatherToday();
+};
+initLoad();
 
-
-
-
-
-
-
-
- // 89c4250809c202e3e1990eca9d40606  (my api key)
