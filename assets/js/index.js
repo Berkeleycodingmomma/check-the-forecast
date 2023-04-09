@@ -22,7 +22,7 @@
      getWeatherToday();
 
  });
-// below are buttons from the search history
+ // below are buttons from the search history
  var contHistEl = $(".cityHistory");
 
  function getHistory() {
@@ -39,10 +39,18 @@
          rowEl.append(btnEl);
      }
 
-     if (!city){
-        return;
+     if (!city) {
+         return;
      }
- }
+
+     // adding the start search button
+     $(".hisBtn").on("click", function (event) {
+         event.preventDefault();
+         city = $(this).text();
+         fiveForecastEl.empty();
+         getWeatherToday();
+     });
+ };
 
 
 
