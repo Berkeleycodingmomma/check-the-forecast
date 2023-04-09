@@ -64,69 +64,94 @@
          url: getUrlCurrent,
          method: "GET",
      }).then(function (response) {
-         $('.cardTodayCityName').text(response.name);
-         $('.cardTodayDate').text(date);
-         $('.icons').attr('src', `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
-        //  just wanted to put in how excited I was to learn the option+shift+8 method for °F.  That's all:)
-         var pEl = $('<p>').text('Temerature: ${response.main.temp} °F');
-         )
+             $('.cardTodayCityName').text(response.name);
+             $('.cardTodayDate').text(date);
+             $('.icons').attr('src', `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
+             //  just wanted to put in how excited I was to learn the option+shift+8 method for °F.  That's all:)
+             var pEl = $('<p>').text(`Temerature: ${response.main.temp} °F`);
+             cardTodayBody.append(pEl);
+             var pEl = $('<p>').text(`Feels like: ${response.main.feels_like} °F`);
+             cardTodayBody.append(pElTemp);
+             var pElHumid = $('<p>').text(`Humidity: ${response.main.humidity} %`);
+             cardTodayBody.append(pElHumid);
+             var pElWind = $('<p>').text(`Wind Speed: ${response.wind.speed} MPH`);
+             cardTodayBody.append(pElWind);
+             var cityLon = response.coord.lon;
+             var cityLat = response.coord.lat;
+             //applied all the detailed data (temp, feels like, humidity, wind speed, Lat & Lon)
 
-
-     })
-
-
-
-
-
-
-
-
-
-
-
+             var getUrlUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${key}`;
 
 
 
-     $.ajax({
-         url: getUrlFiveDay,
-         method: "GET",
-     }).then(function (response) {
-         var fiveDayArray = reponse.list;
-         var myWeather = [];
-
-         $.each(fiveDayArray, function (index, value) {
-             testObj = {
-                 date: value.dt_txt.split(' ')[0],
-                 time: value.dt_txt.split(' ')[1],
-                 temp: value.main.temp,
-                 feels_like: value.main.feels_like,
-                 icon: value.weather[0].icon,
-                 humidity: value.main.humidity
-             }
-             if (value.dt_text.split('')[1] === "12:00:00") {
-                 myWeather.push(testObj);
-             }
-         })
-         // above is an object array for easy reading in console
-
-
-         //  creating the info cards
-         for (let i = 0; i < myWeather.length; i++) {
-
-             var divElCard = $('<div>');
-             divElCard.attr("class", "card test-white bg-primary mb-3 cardOne");
-             divElCard.attr("style", 'max-width: 200px');
 
 
 
 
          }
 
+     )
+
+
+
+ )
+
+
+ })
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+ $.ajax({
+     url: getUrlFiveDay,
+     method: "GET",
+ }).then(function (response) {
+     var fiveDayArray = reponse.list;
+     var myWeather = [];
+
+     $.each(fiveDayArray, function (index, value) {
+         testObj = {
+             date: value.dt_txt.split(' ')[0],
+             time: value.dt_txt.split(' ')[1],
+             temp: value.main.temp,
+             feels_like: value.main.feels_like,
+             icon: value.weather[0].icon,
+             humidity: value.main.humidity
+         }
+         if (value.dt_text.split('')[1] === "12:00:00") {
+             myWeather.push(testObj);
+         }
      })
+     // above is an object array for easy reading in console
+
+
+     //  creating the info cards
+     for (let i = 0; i < myWeather.length; i++) {
+
+         var divElCard = $('<div>');
+         divElCard.attr("class", "card test-white bg-primary mb-3 cardOne");
+         divElCard.attr("style", 'max-width: 200px');
+
+
+
+
+     }
+
+
+
+
+
+ })
 
 
 
