@@ -52,7 +52,7 @@
      });
  };
 
- //  below applies the weather info to the today car and the gives a 5 day forcast
+ //  below I applied the weather info to the today card/ gives a 5 day forcast
  var cardTodayBody = $(".cardTodayBody")
 
  function getWeatherToday() {
@@ -78,39 +78,39 @@
              cardTodayBody.append(pElWind);
              var cityLon = response.coord.lon;
              var cityLat = response.coord.lat;
-             //applied all the detailed data (temp, feels like, humidity, wind speed, Lat & Lon)
+             //applied all the detailed icon data (temp, feels like, humidity, wind speed, Lat & Lon)
 
              var getUrlUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${key}`;
 
+             $.ajax({
+                 url: getUrlUvi,
+                 method: 'GET',
+             }).then(function (response) {
+                     var pElUvi = $('<p>').text(`UV Index; `);
+                     var uviSpan = $('<span>').text(response.current.uvi);
+                     var uvi = reponse.current.uvi;
+                     pElUvi.append(uviSpan);
+                     cardTodayBody.append(pEluvi);
+
+                     if (uvi >= 0 && uvi <= 2) {
+                         uviSpan.attr('class', 'green');
+                     } else if (uvi > 2 && uvi <= 5) {
+                         uviSpan.attr('class', "yellow");
+                     } else if (uvi > 5 && uvi <= 7) {
+                         uviSpan.attr("class", "red")
+                     } else {
+                         uviSpan.attr("class", "purple")
+                     }
+                    //  created and if/else if for the UVI and colors to display the extremeness
+                 });
+             }):
 
 
 
 
 
 
-         }
-
-     )
-
-
-
- )
-
-
- })
-
-
-
-
-
-
-
-
-
-
-
-
-
+     })
 
  $.ajax({
      url: getUrlFiveDay,
