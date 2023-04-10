@@ -112,8 +112,7 @@ $('.search').on("click", function (event) {
 
 * [LinkedIn](https://www.linkedin.com/in/amanda-gray-831a65254/)
 
-* [Deployed Application link](
-
+* [Deployed Application link](https://berkeleycodingmomma.github.io/check-the-forecast/)
 
 ## Credits
 
