@@ -3,16 +3,19 @@ body {
   background-image: url(../css/images/weather\ pic.jpeg);
   background-size: cover;
   align-content: center;
+  font-family: 'Rubik Pixels';
 }
 
 h1 {
 	background-color: hsl(20deg 92.98% 33.53%);
 	text-align: center;
+  font-family: 'Rubik Pixels';
 }
 label {
 	margin-top: 10px;
 	font-weight: bold;
 	font-size: 20px;
+  font-family: 'Rubik Pixels';
 }
 .card {
 	margin: 10px;
