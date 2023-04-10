@@ -23,6 +23,7 @@ $('.search').on("click", function (event) {
 
 //Will create buttons based on search history 
 var contHistEl = $('.cityHist');
+
 function getHistory() {
 	contHistEl.empty();
 
@@ -37,7 +38,8 @@ function getHistory() {
 
 		contHistEl.prepend(rowEl);
 		rowEl.append(btnEl);
-	} if (!city) {
+	}
+	if (!city) {
 		return;
 	}
 	//Allows the buttons to start a search as well

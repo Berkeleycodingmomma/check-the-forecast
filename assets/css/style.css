@@ -1,10 +1,9 @@
 body {
   background-image: url(../css/images/weather\ pic.jpeg);
   background-size: contain;
-  
+
   align-content: center;
   font-family: 'Rubik Pixels';
-
 }
 
 h1 {
@@ -21,7 +20,7 @@ h1 {
 
 .histBtnRow i:hover {
   background-color: black;
-  
+
 }
 
 label {
