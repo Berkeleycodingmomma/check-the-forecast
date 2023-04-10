@@ -57,60 +57,9 @@ label {
   align-content: center;
 }
 
-
-
-
-
-
-/* starting the styling */
-/* h1 {
-    background-color: darkgrey;
-    text-align: center;
+.row-fiveForecast{
+  display: flex;
+  justify-content: space-around;
 }
 
-label{
-margin-top: 10px;
-font-weight: bold;
-font-size: 20px;
-}
-.card {
-    margin: 10px;
-}
 
-.colOne {
-    background-color: white;
-
-}
-
-.colTwo {
-    background-color: rgb(255, 255, 255);
-}
-
-.green {
-    background-color: lightgreen;
-}
-
-.yellow {
-    background: yellow;
-}
-
-.orange {
-    background-color: orange;
-}
-
-.red {
-    background-color: red;
-}
-
-.purple {
-background-color: purple;
-}
-
-.icons {
-    height: 70px;
-    width: 70px;
-}
-
-.cardTodayDate{
-    font-size: 20px;
-} */
