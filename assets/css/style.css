@@ -1,3 +1,5 @@
+
+/* added a background picture  */
 body {
   background-image: url(../css/images/weather\ pic.jpeg);
   background-size: contain;
@@ -6,6 +8,7 @@ body {
   font-family: 'Rubik Pixels';
 }
 
+/* applied the background color for header */
 h1 {
   background-color: hsl(20deg 92.98% 33.53%);
   text-align: center;
@@ -16,11 +19,6 @@ h1 {
 .row {
   font-weight: bold;
   font-family: 'Rubik Pixels';
-}
-
-.histBtnRow i:hover {
-  background-color: black;
-
 }
 
 label {
@@ -40,6 +38,7 @@ label {
   margin-bottom: 5px;
 }
 
+/* corespoding colors to UV index */
 .green {
   background-color: lightgreen;
 }

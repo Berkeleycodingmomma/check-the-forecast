@@ -1,12 +1,11 @@
 var key = '217bdf0e98d10f529e5416b166a26798';
 var city = "Heber City"
 
-//Grabs the current time and date
 var date = moment().format('dddd, MMMM Do YYYY');
 var dateTime = moment().format('YYYY-MM-DD HH:MM:SS')
 
 var cityHist = [];
-//Will save the text value of the search and save it to an array and storage
+//Saves the users search info and saves it to an array in storage
 $('.search').on("click", function (event) {
 	event.preventDefault();
 	city = $(this).parent('.btnPar').siblings('.textVal').val().trim();
@@ -21,7 +20,7 @@ $('.search').on("click", function (event) {
 	getWeatherToday();
 });
 
-//Will create buttons based on search history 
+//These buttons below will create a search history
 var contHistEl = $('.cityHist');
 
 function getHistory() {
@@ -42,7 +41,6 @@ function getHistory() {
 	if (!city) {
 		return;
 	}
-	//Allows the buttons to start a search as well
 	$('.histBtn').on("click", function (event) {
 		event.preventDefault();
 		city = $(this).text();
@@ -51,9 +49,9 @@ function getHistory() {
 	});
 };
 
-//Grab the main 'Today' card body.
+
 var cardTodayBody = $('.cardBodyToday')
-//Applies the weather data to the today card and then launches the five day forecast
+//displays the weather data to the today card and then displays the five day forecast below
 function getWeatherToday() {
 	var getUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`;
 
@@ -67,36 +65,36 @@ function getWeatherToday() {
 		$('.cardTodayDate').text(date);
 		//Icons
 		$('.icons').attr('src', `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
-		// Temperature
+		// Below is the Temperature, Feels Like, Humidity, and Wind Speed
 		var pEl = $('<p>').text(`Temperature: ${response.main.temp} °F`);
 		cardTodayBody.append(pEl);
-		//Feels Like
+
 		var pElTemp = $('<p>').text(`Feels Like: ${response.main.feels_like} °F`);
 		cardTodayBody.append(pElTemp);
-		//Humidity
+		
 		var pElHumid = $('<p>').text(`Humidity: ${response.main.humidity} %`);
 		cardTodayBody.append(pElHumid);
-		//Wind Speed
+		
 		var pElWind = $('<p>').text(`Wind Speed: ${response.wind.speed} MPH`);
 		cardTodayBody.append(pElWind);
-		//Set the lat and long from the searched city
+		
 		var cityLon = response.coord.lon;
-		// console.log(cityLon);
+		
 		var cityLat = response.coord.lat;
-		// console.log(cityLat);
+		
 
 		var getUrlUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${key}`;
 
 		$.ajax({
 			url: getUrlUvi,
-			method: 'GET',
+			method: 'GET', //below is the UV index announcing the severity of exposure basedon the cordinating colors
 		}).then(function (response) {
 			var pElUvi = $('<p>').text(`UV Index: `);
 			var uviSpan = $('<span>').text(response.current.uvi);
 			var uvi = response.current.uvi;
 			pElUvi.append(uviSpan);
 			cardTodayBody.append(pElUvi);
-			//set the UV index to match an exposure chart severity based on color 
+
 			if (uvi >= 0 && uvi <= 2) {
 				uviSpan.attr('class', 'green');
 			} else if (uvi > 2 && uvi <= 5) {
@@ -124,7 +122,7 @@ function getFiveDayForecast() {
 	}).then(function (response) {
 		var fiveDayArray = response.list;
 		var myWeather = [];
-		//Made a object that would allow for easier data read
+	
 		$.each(fiveDayArray, function (index, value) {
 			testObj = {
 				date: value.dt_txt.split(' ')[0],
@@ -134,12 +132,12 @@ function getFiveDayForecast() {
 				icon: value.weather[0].icon,
 				humidity: value.main.humidity
 			}
-
+	//Above will make it eaier to read
 			if (value.dt_txt.split(' ')[1] === "12:00:00") {
 				myWeather.push(testObj);
 			}
 		})
-		//Inject the cards to the screen 
+	
 		for (let i = 0; i < myWeather.length; i++) {
 
 			var divElCard = $('<div>');
@@ -162,20 +160,20 @@ function getFiveDayForecast() {
 			divElIcon.attr('src', `https://openweathermap.org/img/wn/${myWeather[i].icon}@2x.png`);
 			divElBody.append(divElIcon);
 
-			//Temp
+		
 			var pElTemp = $('<p>').text(`Temperature: ${myWeather[i].temp} °F`);
 			divElBody.append(pElTemp);
-			//Feels Like
+	
 			var pElFeel = $('<p>').text(`Feels Like: ${myWeather[i].feels_like} °F`);
 			divElBody.append(pElFeel);
-			//Humidity
+			
 			var pElHumid = $('<p>').text(`Humidity: ${myWeather[i].humidity} %`);
 			divElBody.append(pElHumid);
 		}
 	});
 };
 
-//Allows for the example data to load for Heber
+//This displays the example data to load for Heber (Utah)
 function initLoad() {
 
 	var cityHistStore = JSON.parse(localStorage.getItem('city'));

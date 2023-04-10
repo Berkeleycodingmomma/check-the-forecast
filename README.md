@@ -14,9 +14,9 @@ Third-Party APIs Work Day Scheduler
 
 
 ## Description 
-
-
-Screen shot of my final project
+I have built a Third-party API weather dashboard for a user to see the weather outlook for  multiiple cities. User can search for a city and then they will be presented with a date and current weather with a five day forecast informing them aboaut the temperature, feels like, humidity, wind speed. It will store the users search history below the search bar.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ![Alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/Amanda/Desktop/check-the-forecast/assets/css/images/screen-shot.png?version%3D1681159745489)
 
 
@@ -26,7 +26,7 @@ Screen shot of my final project
 
 
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ##  Server-Side APIs Challenge: Weather Dashboard, Code examples
 
 
